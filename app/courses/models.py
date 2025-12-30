@@ -7,3 +7,6 @@ class Course(db.Model):
     description = db.Column(db.Text, nullable=False)
     duration = db.Column(db.String(50))
     level = db.Column(db.String(50))
+
+    def __repr__(self):
+        return f"<Course {self.title}>"
