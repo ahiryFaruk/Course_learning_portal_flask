@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Admin Dashboard</h2>
+
+<a href="/admin/add-course">Add Course</a>
+
+{% if courses %}
+<ul>
+    {% for course in courses %}
+    <li>
+        {{ course.title }}
+        <a href="/admin/edit-course/{{ course.id }}">Edit</a>
+
+        <form method="POST" action="/admin/delete-course/{{ course.id }}" style="display:inline;">
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No courses added yet.</p>
+{% endif %}
+
+{% endblock %}

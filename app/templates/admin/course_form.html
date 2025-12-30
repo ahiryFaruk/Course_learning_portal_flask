@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>{{ "Edit" if course else "Add" }} Course</h2>
+
+<form method="POST">
+    <input name="title" placeholder="Title" value="{{ course.title if course else '' }}" required>
+    <textarea name="description" placeholder="Description"
+        required>{{ course.description if course else '' }}</textarea>
+    <input name="duration" placeholder="Duration" value="{{ course.duration if course else '' }}">
+    <input name="level" placeholder="Level" value="{{ course.level if course else '' }}">
+    <button type="submit">Save</button>
+</form>
+
+<a href="/admin/">← Back</a>
+
+{% endblock %}
